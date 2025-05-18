@@ -1,5 +1,6 @@
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -33,8 +34,10 @@ public class FirstTest {
         inputEmail.sendKeys("test@gmail.com");
         WebElement inputPassword = driver.findElement(By.id("password"));
         inputPassword.sendKeys("@Password123");
-        WebElement chkbxTerms = driver.findElement(By.cssSelector("input[id='terms-of-use']"));
-        chkbxTerms.isSelected();
+        WebElement clickableTOS = driver.findElement(By.cssSelector("input[id='terms-of-use']"));
+        new Actions(driver)
+                .click(clickableTOS)
+                .perform();
 
 
         //System.out.println("===================");
